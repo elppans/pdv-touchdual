@@ -2,6 +2,32 @@
 
 ---
 
+# Configuração do PDVTouchDual
+
+Certifique-se de ter as seguintes dependências instaladas:
+
+1. **Instale as dependências:**
+   Verifique se você tem os pacotes **git** e **zenity** instalados. Caso contrário, execute os seguintes comandos:
+
+   ```bash
+   # Instale o git:
+   sudo apt install git
+
+   # Instale o zenity:
+   sudo apt install zenity
+   ```
+
+2. **Instale o sleep-gui:**
+   Para instalar o **sleep-gui**, siga estas etapas:
+
+   ```bash
+   cd /tmp
+   git clone https://github.com/elppans/sleep-gui.git
+   cp -a /tmp/sleep-gui/sleep-gui /Zanthus/Zeus/pdvJava
+   rm -rf /tmp/sleep-gui
+   ```
+---
+
 # Configuração da Tela Touchscreen
 
 Para configurar a tela touchscreen em seu PDV, siga os passos abaixo:
