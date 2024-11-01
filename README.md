@@ -28,49 +28,82 @@ Certifique-se de ter as seguintes dependências instaladas:
    ```
 ---
 
-# Configuração da Tela Touchscreen
+## Configurando sua Tela Touchscreen no PDV
 
-Para configurar a tela touchscreen em seu PDV, siga os passos abaixo:
+**O que você vai precisar:**
 
-1. **Instale os pacotes necessários:**
-   Abra o terminal e execute os seguintes comandos para verificar e instalar o pacote `xinput-calibrator`:
+* **Terminal:** Um aplicativo para executar comandos no seu sistema.
+* **Permissões de administrador:** Você precisará ter permissão para instalar programas e fazer alterações no sistema.
 
-   ```bash
-   # Verifique se o pacote está instalado:
-   dpkg -l xinput-calibrator
+**Passo a Passo:**
 
-   # Se não estiver instalado, instale o pacote:
-   sudo apt install xinput-calibrator
-   ```
+1. **Abra o Terminal:**
+   * Procure por "Terminal" no menu de aplicativos do seu sistema e abra-o.
 
-2. **Identifique a tela touchscreen:**
-   Execute o comando abaixo no terminal para listar as telas conectadas ao seu PDV:
+2. **Verifique e Instale o Ferramenta de Calibração:**
+   * Cole o seguinte comando no terminal e pressione Enter:
+     ```bash
+     sudo apt install xinput-calibrator
+     ```
+     * **O que isso faz:** Essa ferramenta nos ajuda a calibrar a tela touchscreen para que os toques sejam registrados no lugar certo.
+   * **Digite sua senha:** Você será solicitado a digitar sua senha de administrador.
 
-   ```bash
-   xrandr
-   ```
+3. **Identifique sua Tela Touchscreen:**
+   * Cole o seguinte comando no terminal e pressione Enter:
+     ```bash
+     xrandr
+     ```
+     * **O que isso faz:** Este comando lista todas as telas conectadas ao seu computador.
+   * **Anote o nome:** Procure o nome da sua tela touchscreen. Geralmente é algo como "LVDS1", "eDP" ou um nome similar.
 
-   Anote o identificador da tela touchscreen (geralmente é `LVDS1` ou `eDP` em laptops).
+4. **Encontre o Número da Touchscreen:**
+   * Cole o seguinte comando no terminal e pressione Enter:
+     ```bash
+     xinput --list
+     ```
+     * **O que isso faz:** Este comando lista todos os dispositivos de entrada, incluindo a touchscreen.
+   * **Anote o número:** Procure a linha que contém "touchscreen" e anote o número que vem depois de "id=".
 
-3. **Encontre o número da touchscreen:**
-   Execute o comando abaixo no terminal para listar os dispositivos de entrada (incluindo a touchscreen):
+5. **Mapeie a Touchscreen para a Tela:**
+   * Cole o seguinte comando no terminal, substituindo os valores entre os colchetes:
+     ```bash
+     xinput map-to-output <número_da_touchscreen> <nome_da_tela>
+     ```
+     * **Exemplo:** Se o número da sua touchscreen for 13 e o nome da sua tela for "LVDS1", o comando ficaria assim:
+       ```bash
+       xinput map-to-output 13 LVDS1
+       ```
 
-   ```bash
-   xinput --list
-   ```
+6. **Reative a Tela:**
+   * Cole o seguinte comando no terminal, substituindo "<nome_da_tela>" pelo nome que você anotou na etapa 3:
+     ```bash
+     xrandr --output <nome_da_tela> --auto
+     ```
+___
+## Gerenciamento de energia com comando xset:
 
-   1. Procure o dispositivo que contém "touchscreen" no nome e anote o número que aparece depois de `id=`.
-   2. Calibre a tela: Agora, execute o seguinte comando no terminal para mapear a touchscreen para a tela identificada na etapa 2:
+```bash
+xset -dpms
+xset s noblank
+xset s off
+```
+Os comandos, `xset -dpms`, `xset s noblank` e `xset s off`, são utilizados para **controlar o gerenciamento de energia da tela** em sistemas operacionais baseados em X Window, como o Linux. Essencialmente, eles servem para **impedir que a tela se apague ou entre em modo de suspensão** após um período de inatividade.
 
-      ```bash
-      xinput map-to-output <número_da_touchscreen> <identificador_da_tela>
-      ```
+### O que cada comando faz:
 
-      Substitua `<número_da_touchscreen>` pelo número obtido na etapa 1 e `<identificador_da_tela>` pelo identificador da tela.
+* **xset -dpms:**
+    * `xset`: É o comando principal para configurar diversas opções do ambiente X.
+    * `-dpms`: Desativa o gerenciamento de energia (Display Power Management System). Isso significa que a tela não entrará em modo de suspensão ou se apagará automaticamente.
 
-   3. Reative a tela: Finalmente, reative a tela com o seguinte comando:
+* **xset s noblank:**
+    * `xset s`: Especifica que queremos configurar as opções do protetor de tela.
+    * `noblank`: Impede que a tela fique em branco.
 
-      ```bash
-      xrandr --output <identificador_da_tela> --auto
-      ```
+* **xset s off:**
+    * `xset s off`: Desativa completamente o protetor de tela.
 
+### Por que usar esses comandos?
+
+* **Evitar que a tela se apague:** Em situações como apresentações, monitoramento constante ou uso remoto, é importante que a tela permaneça sempre ligada.
+* **Manter a tela ativa:** Se você estiver trabalhando em um sistema sem interrupções e não quiser que a tela se apague, esses comandos são úteis.
+* **Personalizar o comportamento da tela:** Ao desativar o gerenciamento de energia, você tem mais controle sobre quando a tela se apaga ou entra em modo de suspensão.
