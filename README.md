@@ -64,6 +64,28 @@ Certifique-se de ter as seguintes dependências instaladas:
      * **O que isso faz:** Este comando lista todos os dispositivos de entrada, incluindo a touchscreen.
    * **Anote o número:** Procure a linha que contém "touchscreen" e anote o número que vem depois de "id=".
 
+- **Observação:**
+A afirmação sobre o item 4: "Procure a linha que contém "touchscreen" "
+
+Nem sempre aparece algo com "TouchScreen". Exeplo:
+
+```
+root@pdv141:~# cat xinput_list
+⎡ Virtual core pointer                          id=2    [master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
+⎜   ↳ ILITEK ILITEK-TP Mouse                    id=11   [slave  pointer  (2)]
+⎜   ↳ ILITEK ILITEK-TP                          id=12   [slave  pointer  (2)]
+⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+    ↳ Power Button                              id=6    [slave  keyboard (3)]
+    ↳ Video Bus                                 id=7    [slave  keyboard (3)]
+    ↳ Power Button                              id=8    [slave  keyboard (3)]
+    ↳ Sleep Button                              id=9    [slave  keyboard (3)]
+    ↳ Datalogic S.r.I and its affiliates Point of Sale Fixed Barcode Scanner   id=10    [slave  keyboard (3)]
+```
+Neste caso, o Toutch é o *id 12*.
+
+
 5. **Mapeie a Touchscreen para a Tela:**
    * Cole o seguinte comando no terminal, substituindo os valores entre os colchetes:
      ```bash
