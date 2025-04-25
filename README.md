@@ -1,5 +1,5 @@
 # pdv-touchdual
-
+>Script do [pdv-fila](https://github.com/elppans/pdv-fila) está melhor completo.
 ---
 
 # Configuração do PDVTouchDual
