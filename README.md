@@ -17,8 +17,8 @@ Certifique-se de ter as seguintes dependências instaladas:
    sudo apt install zenity
    ```
 
-2. **Instale o sleep-gui:**
-   Para instalar o **sleep-gui**, siga estas etapas:
+2. **Instale o [sleep-gui](https://github.com/elppans/sleep-gui):**
+   Para instalar o **-gui**, siga estas etapas:
 
    ```bash
    cd /tmp
