@@ -11,16 +11,16 @@
 
 # Monitor do OPERADOR
 
-XOPERADOR='HDMI-2'		# Porta de vídeo com Touch 
+XOPERADOR='HDMI-2'		        # Porta de vídeo com Touch 
 RESOLUCAO_OPERADOR="1366x768"	# Resolução suportada pelo monitor
-RATE_OPERADOR="60"		# Frame Rate suportada pelo monitor
+RATE_OPERADOR="60"		        # Frame Rate suportada pelo monitor
 LARGURA_OPERADOR=$(echo "$RESOLUCAO_OPERADOR" | cut -d'x' -f1)	# Ex.: 1920
 ALTURA_OPERADOR=$(echo "$RESOLUCAO_OPERADOR" | cut -d'x' -f2)	# Ex.: 1080
 
 # Monitor do CLIENTE
-XCLIENTE='DP-1'			# Porta de vídeo do Cliente
+XCLIENTE='DP-1'			        # Porta de vídeo do Cliente
 RESOLUCAO_CLIENTE="1024x768"	# Resolução suportada pelo monitor
-RATE_CLIENTE="60"		# Frame Rate suportada pelo monitor
+RATE_CLIENTE="60"		        # Frame Rate suportada pelo monitor
 LARGURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f1)	# Ex.: 800
 ALTURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f2)	# Ex.: 600
 
@@ -157,14 +157,14 @@ abrir_chromium_kiosk() {
 # ==============================
 
 main() {
-    # adicionar_resolucao "$XOPERADOR" 1024 768 60 # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "HDMI-2" 1024 768 60)
-    # adicionar_resolucao "$XCLIENTE" 1024 768 60 # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "DP-1" 1024 768 60)
+    # adicionar_resolucao "$XOPERADOR" 1024 768 60    # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "HDMI-2" 1024 768 60)
+    # adicionar_resolucao "$XCLIENTE" 1024 768 60     # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "DP-1" 1024 768 60)
     configurar_monitores
-    # aguardar_sleep_gui # Mesclado em mapear_touchscreens
+    # aguardar_sleep_gui        # Mesclado em mapear_touchscreens
     mapear_touchscreens
-    # ajustar_energia_tela #Mesclado em mapear_touchscreens
+    # ajustar_energia_tela      # Mesclado em mapear_touchscreens
     # centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
-    centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE" # Centralizar o monitor do CLIENTE (Java)
+    centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE"     # Centralizar o monitor do CLIENTE (Java)
     sleep 5
     ocultar_cursor
     ajustar_permissoes
