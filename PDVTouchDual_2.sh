@@ -282,6 +282,49 @@ abrir_chromium_kiosk() {
         interface_param
 }
 
+# Função para executar o Interface
+iniciar_interface() {
+# Configuração de Profile e Storage
+local temp_profile
+local local_storage
+local interface
+
+temp_profile="$HOME/.interface/chromium"
+local_storage="$temp_profile/Default/Local Storage"
+interface="/Zanthus/Zeus/Interface"
+
+mkdir -p "$local_storage"
+chown -R zanthus:zanthus "$interface"
+echo "Iniciando interface..."
+sleeping 10
+
+# Limpar informações de profile, mas manter configuração do interface
+find "$temp_profile" -mindepth 1 -not -path "$local_storage/*" -delete &>>/dev/null
+
+# Executar Chromium com uma nova instância
+setsid nohup chromium-browser --no-sandbox \
+--test-type \
+--no-default-browser-check \
+--no-context-menu \
+--disable-gpu \
+--disable-session-crashed-bubble \
+--disable-infobars \
+--disable-background-networking \
+--disable-component-extensions-with-background-pages \
+--disable-features=SessionRestore \
+--disable-restore-session-state \
+--disable-features=DesktopPWAsAdditionalWindowingControls \
+--disable-features=TabRestore \
+--disable-translate \
+--disk-cache-dir=/tmp/chromium-cache \
+--user-data-dir="$temp_profile" \
+--restore-last-session=false \
+--autoplay-policy=no-user-gesture-required \
+--enable-speech-synthesis \
+--kiosk \
+file:///"$interface"/index.html &>>/dev/null 
+}
+
 # ==============================
 # Execução principal
 # ==============================
@@ -299,7 +342,8 @@ main() {
     ocultar_cursor
     ajustar_permissoes
     iniciar_servicos
-    abrir_chromium_kiosk
+	iniciar_interface
+    # abrir_chromium_kiosk
 
 }
 
