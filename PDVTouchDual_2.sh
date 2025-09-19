@@ -33,6 +33,26 @@ configurar_monitores() {
     xrandr --auto --output "$XCLIENTE" --mode "$RESOLUCAO_CLIENTE"  --pos "$LARGURA_OPERADOR"x0 --rate "$RATE_CLIENTE"
 }
 
+adicionar_resolucao() {
+    local PORTA_VIDEO="$1"   # Ex.: HDMI-1, DP-1, eDP-1
+    local RES_X="$2"         # Largura, ex.: 1024
+    local RES_Y="$3"         # Altura, ex.: 768
+    local TAXA="$4"          # Taxa de atualização, ex.: 60
+
+    # Gera o modeline
+    local MODELINE
+    MODELINE=$(cvt "$RES_X" "$RES_Y" "$TAXA" | grep Modeline | cut -d' ' -f2-)
+
+    # Extrai o nome do modo (primeira palavra do modeline, sem aspas)
+    local NOME_MODO
+    NOME_MODO=$(echo "$MODELINE" | awk '{print $1}' | tr -d '"')
+
+    # Cria e aplica a resolução
+    xrandr --newmode $MODELINE
+    xrandr --addmode "$PORTA_VIDEO" "$NOME_MODO"
+    xrandr --output "$PORTA_VIDEO" --mode "$NOME_MODO"
+}
+
 aguardar_sleep_gui() {
   local tempo_total="$1" # Tempo total em segundos
   local num_segmentos=1  # Número de segmentos (reduzido para 5 para atingir o limite mínimo de 2 segundos) > (Fixo 1 para sem limite)
@@ -137,12 +157,14 @@ abrir_chromium_kiosk() {
 # ==============================
 
 main() {
+    # adicionar_resolucao "$XOPERADOR" 1024 768 60 # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "HDMI-2" 1024 768 60)
+    # adicionar_resolucao "$XCLIENTE" 1024 768 60 # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "DP-1" 1024 768 60)
     configurar_monitores
     # aguardar_sleep_gui # Mesclado em mapear_touchscreens
     mapear_touchscreens
     # ajustar_energia_tela #Mesclado em mapear_touchscreens
     # centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
-    # centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE" # Centralizar o monitor do CLIENTE (Java)
+    centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE" # Centralizar o monitor do CLIENTE (Java)
     sleep 5
     ocultar_cursor
     ajustar_permissoes
