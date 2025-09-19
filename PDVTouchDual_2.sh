@@ -30,24 +30,47 @@ configurar_monitores() {
 }
 
 aguardar_sleep_gui() {
-    if [ -f /Zanthus/Zeus/pdvJava/sleep-gui ]; then
-        chmod +x /Zanthus/Zeus/pdvJava/sleep-gui
-        /Zanthus/Zeus/pdvJava/sleep-gui 30
-    else
-        zenity --error --text "Não foi encontrado \"sleep-gui\""
-    fi
+  local tempo_total="$1" # Tempo total em segundos
+  local num_segmentos=1  # Número de segmentos (reduzido para 5 para atingir o limite mínimo de 2 segundos) > (Fixo 1 para sem limite)
+
+  local msg_title="Status do progresso"
+  local msg_aguarde="Aguarde"
+  local msg_seg="seg."
+  local msg_fim="Fim da espera"
+
+  # Cálculo dos intervalos de tempo para cada segmento
+  # Troca do cálculo dos intervalos para segmento fixo,
+  # Funciona melhor com seq + "tempo_total" em vez de "num_segmentos"
+  # local intervalo=$(expr "$tempo_total" / "$num_segmentos")
+  local intervalo="$num_segmentos"
+
+  # Loop para exibir as mensagens de progresso
+  (
+    # for i in $(seq "$num_segmentos" -1 1); do
+    for i in $(seq "$tempo_total" -1 1); do
+      echo "# $msg_aguarde $(expr "$i" \* $intervalo) $msg_seg"
+      sleep "$intervalo"
+    done
+  ) |
+    zenity --progress \
+      --title="${msg_title}" \
+      --text="${msg_fim}" \
+      --percentage=0 \
+      --pulsate \
+      --auto-close \
+      --auto-kill
 }
 
 mapear_touchscreens() {
-    aguardar_sleep_gui
+    aguardar_sleep_gui 30
     xinput map-to-output 11 "$XOPERADOR" &
-    xinput map-to-output 12 "$XCLIENTE" &
+    # xinput map-to-output 12 "$XCLIENTE" &
     ajustar_energia_tela
 }
 
 ajustar_energia_tela() {
     xrandr --output "$XOPERADOR" --auto
-    #xrandr --output "$XCLIENTE" --auto
+    # xrandr --output "$XCLIENTE" --auto
     xset -dpms
     xset s noblank
     xset s off
