@@ -14,19 +14,23 @@
 XOPERADOR='HDMI-2'		# Porta de vídeo com Touch 
 RESOLUCAO_OPERADOR="1366x768"	# Resolução suportada pelo monitor
 RATE_OPERADOR="60"		# Frame Rate suportada pelo monitor
+LARGURA_OPERADOR=$(echo "$RESOLUCAO_OPERADOR" | cut -d'x' -f1)	# Ex.: 1920
+ALTURA_OPERADOR=$(echo "$RESOLUCAO_OPERADOR" | cut -d'x' -f2)	# Ex.: 1080
 
 # Monitor do CLIENTE
 XCLIENTE='DP-1'			# Porta de vídeo do Cliente
 RESOLUCAO_CLIENTE="1024x768"	# Resolução suportada pelo monitor
 RATE_CLIENTE="60"		# Frame Rate suportada pelo monitor
+LARGURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f1)	# Ex.: 800
+ALTURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f2)	# Ex.: 600
 
 # ==============================
 # Funções
 # ==============================
 
 configurar_monitores() {
-    xrandr --auto --output "$XOPERADOR" --mode $RESOLUCAO_OPERADOR --rate $RATE_OPERADOR
-    xrandr --auto --output "$XCLIENTE" --mode $RESOLUCAO_CLIENTE  --rate $RATE_CLIENTE
+    xrandr --auto --output "$XOPERADOR" --mode "$RESOLUCAO_OPERADOR" --pos 0x0--rate "$RATE_OPERADOR"
+    xrandr --auto --output "$XCLIENTE" --mode "$RESOLUCAO_CLIENTE"  --pos "$LARGURA_OPERADOR"x0 --rate "$RATE_CLIENTE"
 }
 
 aguardar_sleep_gui() {
