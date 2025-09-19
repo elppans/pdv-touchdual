@@ -344,7 +344,6 @@ main() {
     iniciar_servicos
 	iniciar_interface
     # abrir_chromium_kiosk
-
 }
 
 main
