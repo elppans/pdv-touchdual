@@ -1,0 +1,928 @@
+⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
+⎜   ↳ eGalax Inc. eGalaxTouch EXC3111-5541-08.00.00.00	id=10	[slave  pointer  (2)]
+⎜   ↳  USB OPTICAL MOUSE                      	id=11	[slave  pointer  (2)]
+⎣ Virtual core keyboard                   	id=3	[master keyboard (2)]
+    ↳ Virtual core XTEST keyboard             	id=5	[slave  keyboard (3)]
+    ↳ Power Button                            	id=6	[slave  keyboard (3)]
+    ↳ Video Bus                               	id=7	[slave  keyboard (3)]
+    ↳ Power Button                            	id=8	[slave  keyboard (3)]
+    ↳ Sleep Button                            	id=9	[slave  keyboard (3)]
+    ↳ CASUE USB KB                            	id=12	[slave  keyboard (3)]
+    ↳ CASUE USB KB Consumer Control           	id=13	[slave  keyboard (3)]
+    ↳ CASUE USB KB System Control             	id=14	[slave  keyboard (3)]
+Screen 0: minimum 320 x 200, current 1824 x 768, maximum 16384 x 16384
+VGA-1 connected primary 800x600+0+0 (normal left inverted right x axis y axis) 0mm x 0mm
+   1024x768      60.00  
+   800x600       60.32*   56.25  
+   848x480       60.00  
+   640x480       59.94  
+DP-1 disconnected (normal left inverted right x axis y axis)
+HDMI-1 connected 1024x768+800+0 (normal left inverted right x axis y axis) 530mm x 290mm
+   1024x768      60.01*+  75.03    70.07    60.00  
+   832x624       74.55  
+   800x600       72.19    75.00    60.32    56.25  
+   720x576       50.00  
+   720x480       60.00    59.94  
+   640x480       75.00    72.81    66.67    60.00    59.94  
+   720x400       70.08  
+DVI-I-4-4 disconnected (normal left inverted right x axis y axis)
+DVI-I-3-3 disconnected (normal left inverted right x axis y axis)
+DVI-I-2-2 disconnected (normal left inverted right x axis y axis)
+DVI-I-1-1 disconnected (normal left inverted right x axis y axis)
+  "1368x768_60.00" (0x48e) 85.250MHz -HSync +VSync
+        h: width  1368 start 1440 end 1576 total 1784 skew    0 clock  47.79KHz
+        v: height  768 start  771 end  781 total  798           clock  59.88Hz
+00:00.0 Host bridge: Intel Corporation Atom Processor Z36xxx/Z37xxx Series SoC Transaction Register (rev 11)
+00:02.0 VGA compatible controller: Intel Corporation Atom Processor Z36xxx/Z37xxx Series Graphics & Display (rev 11)
+00:13.0 SATA controller: Intel Corporation Atom Processor E3800 Series SATA AHCI Controller (rev 11)
+00:14.0 USB controller: Intel Corporation Atom Processor Z36xxx/Z37xxx, Celeron N2000 Series USB xHCI (rev 11)
+00:1a.0 Encryption controller: Intel Corporation Atom Processor Z36xxx/Z37xxx Series Trusted Execution Engine (rev 11)
+00:1c.0 PCI bridge: Intel Corporation Atom Processor E3800 Series PCI Express Root Port 1 (rev 11)
+00:1c.1 PCI bridge: Intel Corporation Atom Processor E3800 Series PCI Express Root Port 2 (rev 11)
+00:1c.2 PCI bridge: Intel Corporation Atom Processor E3800 Series PCI Express Root Port 3 (rev 11)
+00:1c.3 PCI bridge: Intel Corporation Atom Processor E3800 Series PCI Express Root Port 4 (rev 11)
+00:1f.0 ISA bridge: Intel Corporation Atom Processor Z36xxx/Z37xxx Series Power Control Unit (rev 11)
+00:1f.3 SMBus: Intel Corporation Atom Processor E3800/CE2700 Series SMBus Controller (rev 11)
+02:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 0c)
+testenovabenta
+    description: Desktop Computer
+    product: All Series (All)
+    vendor: ASUS
+    version: System Version
+    serial: System Serial Number
+    width: 64 bits
+    capabilities: smbios-2.8 dmi-2.8 smp vsyscall32
+    configuration: boot=normal chassis=desktop family=ASUS MB sku=All uuid=0f83a684-b9f7-df10-a0cd-fc34977bb352
+  *-core
+       description: Motherboard
+       product: J1800I-C/BR
+       vendor: ASUSTeK COMPUTER INC.
+       physical id: 0
+       version: Rev X.0x
+       serial: 211289222103437
+       slot: To be filled by O.E.M.
+     *-firmware
+          description: BIOS
+          vendor: American Megatrends Inc.
+          physical id: 0
+          version: 1002
+          date: 02/01/2019
+          size: 64KiB
+          capacity: 8MiB
+          capabilities: pci apm upgrade shadowing cdboot bootselect socketedrom edd int13floppy1200 int13floppy720 int13floppy2880 int5printscreen int9keyboard int14serial int17printer acpi usb biosbootspecification uefi
+     *-memory
+          description: System Memory
+          physical id: 1e
+          slot: System board or motherboard
+          size: 4GiB
+        *-bank:0
+             description: DIMM DDR3 1600 MHz (0.6 ns)
+             product: MS3512NSZ-CA3G1
+             vendor: Undefined
+             physical id: 0
+             serial: 25840123
+             slot: DIMM_A1
+             size: 4GiB
+             width: 64 bits
+             clock: 1600MHz (0.6ns)
+        *-bank:1
+             description: DIMM [empty]
+             product: Array1_PartNumber1
+             vendor: A1_Manufacturer1
+             physical id: 1
+             serial: A1_SerNum1
+             slot: DIMM_B1
+     *-cache:0
+          description: L1 cache
+          physical id: 28
+          slot: CPU Internal L1
+          size: 112KiB
+          capacity: 112KiB
+          capabilities: internal write-back
+          configuration: level=1
+     *-cache:1
+          description: L2 cache
+          physical id: 29
+          slot: CPU Internal L2
+          size: 1MiB
+          capacity: 1MiB
+          capabilities: internal write-back unified
+          configuration: level=2
+     *-cpu
+          description: CPU
+          product: Intel(R) Celeron(R) CPU  J1800  @ 2.41GHz
+          vendor: Intel Corp.
+          physical id: 2a
+          bus info: cpu@0
+          version: 6.55.9
+          slot: FCBGA1170
+          size: 2583MHz
+          width: 64 bits
+          clock: 83MHz
+          capabilities: lm fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp x86-64 constant_tsc arch_perfmon pebs bts rep_good nopl xtopology tsc_reliable nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 cx16 xtpr pdcm sse4_1 sse4_2 movbe popcnt tsc_deadline_timer rdrand lahf_lm 3dnowprefetch epb pti ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid tsc_adjust smep erms dtherm ida arat cpufreq
+          configuration: cores=2 enabledcores=2 microcode=2314 threads=2
+     *-pci
+          description: Host bridge
+          product: Atom Processor Z36xxx/Z37xxx Series SoC Transaction Register
+          vendor: Intel Corporation
+          physical id: 100
+          bus info: pci@0000:00:00.0
+          version: 11
+          width: 32 bits
+          clock: 33MHz
+          configuration: driver=iosf_mbi_pci
+          resources: irq:0
+        *-display
+             description: VGA compatible controller
+             product: Atom Processor Z36xxx/Z37xxx Series Graphics & Display
+             vendor: Intel Corporation
+             physical id: 2
+             bus info: pci@0000:00:02.0
+             logical name: card0
+             logical name: /dev/snd/controlC0
+             logical name: /dev/snd/pcmC0D0p
+             logical name: /dev/snd/pcmC0D1p
+             logical name: /dev/fb0
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm msi vga_controller bus_master cap_list rom fb
+             configuration: depth=32 driver=i915 latency=0 resolution=1024,768
+             resources: irq:94 memory:90000000-903fffff memory:80000000-8fffffff ioport:f080(size=8) memory:c0000-dffff
+        *-sata
+             description: SATA controller
+             product: Atom Processor E3800 Series SATA AHCI Controller
+             vendor: Intel Corporation
+             physical id: 13
+             bus info: pci@0000:00:13.0
+             logical name: scsi0
+             version: 11
+             width: 32 bits
+             clock: 66MHz
+             capabilities: sata msi pm ahci_1.0 bus_master cap_list emulated
+             configuration: driver=ahci latency=0
+             resources: irq:91 ioport:f070(size=8) ioport:f060(size=4) ioport:f050(size=8) ioport:f040(size=4) ioport:f020(size=32) memory:90712000-907127ff
+           *-disk
+                description: ATA Disk
+                product: SSD 128GB
+                physical id: 0.0.0
+                bus info: scsi@0:0.0.0
+                logical name: /dev/sda
+                version: 22A1
+                serial: SN-on-the-lable
+                size: 119GiB (128GB)
+                capabilities: partitioned partitioned:dos
+                configuration: ansiversion=5 logicalsectorsize=512 sectorsize=512 signature=2cc08e9e
+              *-volume:0
+                   description: EXT4 volume
+                   vendor: Linux
+                   physical id: 1
+                   bus info: scsi@0:0.0.0,1
+                   logical name: /dev/sda1
+                   logical name: /
+                   version: 1.0
+                   serial: 371ae9cf-c383-43ef-b89d-b80f430020ac
+                   size: 111GiB
+                   capacity: 111GiB
+                   capabilities: primary bootable journaled extended_attributes large_files huge_files dir_nlink recover 64bit extents ext4 ext2 initialized
+                   configuration: created=2025-09-19 14:08:46 filesystem=ext4 lastmountpoint=/ modified=2025-09-19 16:50:37 mount.fstype=ext4 mount.options=rw,relatime,discard mounted=2025-09-19 16:50:38 state=mounted
+              *-volume:1
+                   description: Linux swap volume
+                   physical id: 2
+                   bus info: scsi@0:0.0.0,2
+                   logical name: /dev/sda2
+                   version: 1
+                   serial: 3cbd2090-3365-4af0-a17a-51e330a6a9e8
+                   size: 8361MiB
+                   capacity: 8361MiB
+                   capabilities: primary nofs swap initialized
+                   configuration: filesystem=swap label=swap pagesize=4096
+        *-usb
+             description: USB controller
+             product: Atom Processor Z36xxx/Z37xxx, Celeron N2000 Series USB xHCI
+             vendor: Intel Corporation
+             physical id: 14
+             bus info: pci@0000:00:14.0
+             version: 11
+             width: 64 bits
+             clock: 33MHz
+             capabilities: pm msi xhci bus_master cap_list
+             configuration: driver=xhci_hcd latency=0
+             resources: irq:92 memory:90700000-9070ffff
+           *-usbhost:0
+                product: xHCI Host Controller
+                vendor: Linux 5.19.0-38-generic xhci-hcd
+                physical id: 0
+                bus info: usb@1
+                logical name: usb1
+                version: 5.19
+                capabilities: usb-2.00
+                configuration: driver=hub slots=6 speed=480Mbit/s
+              *-usb:0
+                   description: Mouse
+                   product: eGalax Inc. eGalaxTouch EXC3111-5541-08.00.00.00
+                   vendor: eGalax Inc.
+                   physical id: 1
+                   bus info: usb@1:1
+                   logical name: input10
+                   logical name: /dev/input/event4
+                   logical name: /dev/input/mouse0
+                   version: 41.03
+                   capabilities: usb-2.00 usb
+                   configuration: driver=usbhid maxpower=100mA speed=12Mbit/s
+              *-usb:1
+                   description: USB hub
+                   product: USB2.0 Hub
+                   vendor: Genesys Logic, Inc.
+                   physical id: 4
+                   bus info: usb@1:4
+                   version: 32.98
+                   capabilities: usb-2.00
+                   configuration: driver=hub maxpower=100mA slots=4 speed=480Mbit/s
+                 *-usb:0
+                      description: Mouse
+                      product: USB OPTICAL MOUSE
+                      physical id: 1
+                      bus info: usb@1:4.1
+                      logical name: input6
+                      logical name: /dev/input/event5
+                      logical name: /dev/input/mouse1
+                      version: 1.00
+                      capabilities: usb-1.10 usb
+                      configuration: driver=usbhid maxpower=100mA speed=2Mbit/s
+                 *-usb:1
+                      description: Keyboard
+                      product: CASUE USB KB System Control
+                      physical id: 2
+                      bus info: usb@1:4.2
+                      logical name: input7
+                      logical name: /dev/input/event6
+                      logical name: input7::capslock
+                      logical name: input7::compose
+                      logical name: input7::kana
+                      logical name: input7::numlock
+                      logical name: input7::scrolllock
+                      logical name: input8
+                      logical name: /dev/input/event7
+                      logical name: input9
+                      logical name: /dev/input/event8
+                      version: 0.01
+                      capabilities: usb-1.10 usb
+                      configuration: driver=usbhid maxpower=100mA speed=2Mbit/s
+                 *-usb:2
+                      description: Printer
+                      product: i9
+                      vendor: ELGIN
+                      physical id: 4
+                      bus info: usb@1:4.4
+                      version: 1.00
+                      serial: 88888888888888888888888888888888
+                      capabilities: usb-1.00 bidirectional
+                      configuration: driver=usbfs maxpower=10mA speed=12Mbit/s
+           *-usbhost:1
+                product: xHCI Host Controller
+                vendor: Linux 5.19.0-38-generic xhci-hcd
+                physical id: 1
+                bus info: usb@2
+                logical name: usb2
+                version: 5.19
+                capabilities: usb-3.00
+                configuration: driver=hub slots=1 speed=5000Mbit/s
+        *-generic
+             description: Encryption controller
+             product: Atom Processor Z36xxx/Z37xxx Series Trusted Execution Engine
+             vendor: Intel Corporation
+             physical id: 1a
+             bus info: pci@0000:00:1a.0
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm msi bus_master cap_list
+             configuration: driver=mei_txe latency=0
+             resources: irq:96 memory:90500000-905fffff memory:90400000-904fffff
+        *-pci:0
+             description: PCI bridge
+             product: Atom Processor E3800 Series PCI Express Root Port 1
+             vendor: Intel Corporation
+             physical id: 1c
+             bus info: pci@0000:00:1c.0
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:87 ioport:1000(size=4096)
+        *-pci:1
+             description: PCI bridge
+             product: Atom Processor E3800 Series PCI Express Root Port 2
+             vendor: Intel Corporation
+             physical id: 1c.1
+             bus info: pci@0000:00:1c.1
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:88 ioport:e000(size=4096) memory:90600000-906fffff
+           *-network
+                description: Ethernet interface
+                product: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+                vendor: Realtek Semiconductor Co., Ltd.
+                physical id: 0
+                bus info: pci@0000:02:00.0
+                logical name: eth0
+                version: 0c
+                serial: fc:34:97:7b:b3:52
+                size: 100Mbit/s
+                capacity: 1Gbit/s
+                width: 64 bits
+                clock: 33MHz
+                capabilities: pm msi pciexpress msix vpd bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+                configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=5.19.0-38-generic duplex=full firmware=rtl8168g-2_0.0.1 02/06/13 ip=192.168.15.98 latency=0 link=yes multicast=yes port=twisted pair speed=100Mbit/s
+                resources: irq:17 ioport:e000(size=256) memory:90604000-90604fff memory:90600000-90603fff
+        *-pci:2
+             description: PCI bridge
+             product: Atom Processor E3800 Series PCI Express Root Port 3
+             vendor: Intel Corporation
+             physical id: 1c.2
+             bus info: pci@0000:00:1c.2
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:89 ioport:2000(size=4096)
+        *-pci:3
+             description: PCI bridge
+             product: Atom Processor E3800 Series PCI Express Root Port 4
+             vendor: Intel Corporation
+             physical id: 1c.3
+             bus info: pci@0000:00:1c.3
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pci pciexpress msi pm normal_decode bus_master cap_list
+             configuration: driver=pcieport
+             resources: irq:90 ioport:3000(size=4096)
+        *-isa
+             description: ISA bridge
+             product: Atom Processor Z36xxx/Z37xxx Series Power Control Unit
+             vendor: Intel Corporation
+             physical id: 1f
+             bus info: pci@0000:00:1f.0
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: isa bus_master cap_list
+             configuration: driver=lpc_ich latency=0
+             resources: irq:0
+           *-pnp00:00
+                product: PnP device PNP0b00
+                physical id: 0
+                capabilities: pnp
+                configuration: driver=rtc_cmos
+           *-pnp00:01
+                product: PnP device PNP0c02
+                physical id: 1
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:02
+                product: PnP device PNP0c02
+                physical id: 2
+                capabilities: pnp
+                configuration: driver=system
+           *-pnp00:03
+                product: PnP device PNP0501
+                physical id: 3
+                capabilities: pnp
+                configuration: driver=serial
+           *-pnp00:04
+                product: PnP device PNP0501
+                physical id: 4
+                capabilities: pnp
+                configuration: driver=serial
+           *-pnp00:05
+                product: PnP device PNP0c02
+                physical id: 5
+                capabilities: pnp
+                configuration: driver=system
+        *-serial
+             description: SMBus
+             product: Atom Processor E3800/CE2700 Series SMBus Controller
+             vendor: Intel Corporation
+             physical id: 1f.3
+             bus info: pci@0000:00:1f.3
+             version: 11
+             width: 32 bits
+             clock: 33MHz
+             capabilities: pm cap_list
+             configuration: driver=i801_smbus latency=0
+             resources: irq:18 memory:90710000-9071001f ioport:f000(size=32)
+  *-input:0
+       product: Power Button
+       physical id: 1
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: Sleep Button
+       physical id: 2
+       logical name: input1
+       logical name: /dev/input/event1
+       capabilities: platform
+  *-input:2
+       product: Intel HDMI/DP LPE Audio HDMI/DP,pcm=0
+       physical id: 3
+       logical name: input12
+       logical name: /dev/input/event9
+  *-input:3
+       product: Intel HDMI/DP LPE Audio HDMI/DP,pcm=1
+       physical id: 4
+       logical name: input13
+       logical name: /dev/input/event10
+  *-input:4
+       product: Power Button
+       physical id: 5
+       logical name: input2
+       logical name: /dev/input/event2
+       capabilities: platform
+  *-input:5
+       product: Video Bus
+       physical id: 6
+       logical name: input3
+       logical name: /dev/input/event3
+       capabilities: platform
+# dmidecode 3.3
+Getting SMBIOS data from sysfs.
+SMBIOS 2.8 present.
+41 structures occupying 1711 bytes.
+Table at 0x000EBDE0.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: 1002
+	Release Date: 02/01/2019
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 8 MB
+	Characteristics:
+		PCI is supported
+		APM is supported
+		BIOS is upgradeable
+		BIOS shadowing is allowed
+		Boot from CD is supported
+		Selectable boot is supported
+		BIOS ROM is socketed
+		EDD is supported
+		5.25"/1.2 MB floppy services are supported (int 13h)
+		3.5"/720 kB floppy services are supported (int 13h)
+		3.5"/2.88 MB floppy services are supported (int 13h)
+		Print screen service is supported (int 5h)
+		8042 keyboard services are supported (int 9h)
+		Serial services are supported (int 14h)
+		Printer services are supported (int 17h)
+		ACPI is supported
+		USB legacy is supported
+		BIOS boot specification is supported
+		Targeted content distribution is supported
+		UEFI is supported
+	BIOS Revision: 5.6
+
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+	Manufacturer: ASUS
+	Product Name: All Series
+	Version: System Version
+	Serial Number: System Serial Number
+	UUID: 0f83a684-b9f7-df10-a0cd-fc34977bb352
+	Wake-up Type: Power Switch
+	SKU Number: All
+	Family: ASUS MB
+
+Handle 0x0002, DMI type 2, 15 bytes
+Base Board Information
+	Manufacturer: ASUSTeK COMPUTER INC.
+	Product Name: J1800I-C/BR
+	Version: Rev X.0x
+	Serial Number: 211289222103437
+	Asset Tag: To be filled by O.E.M.
+	Features:
+		Board is a hosting board
+		Board is replaceable
+	Location In Chassis: To be filled by O.E.M.
+	Chassis Handle: 0x0003
+	Type: Motherboard
+	Contained Object Handles: 0
+
+Handle 0x0003, DMI type 3, 25 bytes
+Chassis Information
+	Manufacturer: To Be Filled By O.E.M.
+	Type: Desktop
+	Lock: Not Present
+	Version: To Be Filled By O.E.M.
+	Serial Number: To Be Filled By O.E.M.
+	Asset Tag: To Be Filled By O.E.M.
+	Boot-up State: Safe
+	Power Supply State: Safe
+	Thermal State: Safe
+	Security Status: None
+	OEM Information: 0x00000000
+	Height: Unspecified
+	Number Of Power Cords: 1
+	Contained Elements: 1
+		<OUT OF SPEC> (0)
+	SKU Number: To be filled by O.E.M.
+
+Handle 0x0008, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: PS/2
+	Internal Connector Type: None
+	External Reference Designator: PS/2
+	External Connector Type: PS/2
+	Port Type: Other
+
+Handle 0x0009, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: USB3_1
+	Internal Connector Type: None
+	External Reference Designator: USB1
+	External Connector Type: Access Bus (USB)
+	Port Type: USB
+
+Handle 0x000A, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: USB_E12
+	Internal Connector Type: None
+	External Reference Designator: USB_E1_2
+	External Connector Type: Access Bus (USB)
+	Port Type: USB
+
+Handle 0x000B, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: USB_E34
+	Internal Connector Type: None
+	External Reference Designator: USB_E3_4
+	External Connector Type: Access Bus (USB)
+	Port Type: USB
+
+Handle 0x000C, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: AUDIO
+	Internal Connector Type: None
+	External Reference Designator: AUDIO
+	External Connector Type: Other
+	Port Type: Audio Port
+
+Handle 0x000D, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: HDMI
+	Internal Connector Type: None
+	External Reference Designator: HDMI port
+	External Connector Type: Other
+	Port Type: Other
+
+Handle 0x000E, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: COM2
+	Internal Connector Type: None
+	External Reference Designator: COM2 port
+	External Connector Type: Other
+	Port Type: Other
+
+Handle 0x000F, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: SATA3G_1
+	Internal Connector Type: SAS/SATA Plug Receptacle
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: SATA
+
+Handle 0x0010, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: SATA3G_2
+	Internal Connector Type: SAS/SATA Plug Receptacle
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: SATA
+
+Handle 0x0011, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: USB23
+	Internal Connector Type: Access Bus (USB)
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: USB
+
+Handle 0x0012, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: AAFP
+	Internal Connector Type: Mini Jack (headphones)
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Audio Port
+
+Handle 0x0013, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: CPU_FAN
+	Internal Connector Type: Other
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Other
+
+Handle 0x0014, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: CHA_FAN
+	Internal Connector Type: Other
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Other
+
+Handle 0x0015, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: COM1
+	Internal Connector Type: Other
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Other
+
+Handle 0x0016, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: F_PANEL
+	Internal Connector Type: Other
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Other
+
+Handle 0x0017, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: LPT
+	Internal Connector Type: Other
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Other
+
+Handle 0x0018, DMI type 8, 9 bytes
+Port Connector Information
+	Internal Reference Designator: VGA
+	Internal Connector Type: Other
+	External Reference Designator: Not Specified
+	External Connector Type: None
+	Port Type: Other
+
+Handle 0x0019, DMI type 9, 17 bytes
+System Slot Information
+	Designation: PCIEX1_1
+	Type: x1 PCI Express
+	Current Usage: Available
+	Length: Short
+	ID: 1
+	Characteristics:
+		3.3 V is provided
+		Opening is shared
+		PME signal is supported
+	Bus Address: 0000:03:1c.2
+
+Handle 0x001A, DMI type 9, 17 bytes
+System Slot Information
+	Designation: Mini PCIE
+	Type: x1 PCI Express
+	Current Usage: Available
+	Length: Short
+	ID: 2
+	Characteristics:
+		3.3 V is provided
+		Opening is shared
+		PME signal is supported
+	Bus Address: 0000:04:1c.3
+
+Handle 0x001B, DMI type 10, 6 bytes
+On Board Device Information
+	Type: Video
+	Status: Enabled
+	Description:    To Be Filled By O.E.M.
+
+Handle 0x001C, DMI type 11, 5 bytes
+OEM Strings
+	String 1: To Be Filled By O.E.M.
+	String 2: To Be Filled By O.E.M.
+	String 3: To Be Filled By O.E.M.
+	String 4: To Be Filled By O.E.M.
+
+Handle 0x001D, DMI type 12, 5 bytes
+System Configuration Options
+	Option 1: To Be Filled By O.E.M.
+
+Handle 0x001E, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: None
+	Maximum Capacity: 8 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 2
+
+Handle 0x001F, DMI type 19, 31 bytes
+Memory Array Mapped Address
+	Starting Address: 0x00000000000
+	Ending Address: 0x000FFFFFFFF
+	Range Size: 4 GB
+	Physical Array Handle: 0x001E
+	Partition Width: 2
+
+Handle 0x0020, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x001E
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_A1
+	Bank Locator: A1_BANK0
+	Type: DDR3
+	Type Detail: Unknown
+	Speed: 1600 MT/s
+	Manufacturer: Undefined       
+	Serial Number: 25840123  
+	Asset Tag: A1_AssetTagNum0
+	Part Number: MS3512NSZ-CA3G1   
+	Rank: 1
+	Configured Memory Speed: 1333 MT/s
+	Minimum Voltage: 1.35 V
+	Maximum Voltage: 1.5 V
+	Configured Voltage: 1.35 V
+
+Handle 0x0021, DMI type 20, 35 bytes
+Memory Device Mapped Address
+	Starting Address: 0x00000000000
+	Ending Address: 0x000FFFFFFFF
+	Range Size: 4 GB
+	Physical Device Handle: 0x0020
+	Memory Array Mapped Address Handle: 0x001F
+	Partition Row Position: Unknown
+	Interleave Position: 1
+	Interleaved Data Depth: 2
+
+Handle 0x0022, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x001E
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: 64 bits
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM_B1
+	Bank Locator: B1_BANK1
+	Type: Unknown
+	Type Detail: Unknown
+	Speed: Unknown
+	Manufacturer: A1_Manufacturer1
+	Serial Number: A1_SerNum1
+	Asset Tag: A1_AssetTagNum1
+	Part Number: Array1_PartNumber1
+	Rank: Unknown
+	Configured Memory Speed: Unknown
+	Minimum Voltage: Unknown
+	Maximum Voltage: Unknown
+	Configured Voltage: Unknown
+
+Handle 0x0023, DMI type 126, 35 bytes
+Inactive
+
+Handle 0x0024, DMI type 32, 20 bytes
+System Boot Information
+	Status: No errors detected
+
+Handle 0x0025, DMI type 41, 11 bytes
+Onboard Device
+	Reference Designation:  Onboard IGD
+	Type: Video
+	Status: Enabled
+	Type Instance: 1
+	Bus Address: 0000:00:02.0
+
+Handle 0x0026, DMI type 41, 11 bytes
+Onboard Device
+	Reference Designation:  Onboard LAN
+	Type: Ethernet
+	Status: Enabled
+	Type Instance: 1
+	Bus Address: 0000:00:19.0
+
+Handle 0x0027, DMI type 41, 11 bytes
+Onboard Device
+	Reference Designation:  Onboard 1394
+	Type: Other
+	Status: Enabled
+	Type Instance: 1
+	Bus Address: 0000:03:1c.2
+
+Handle 0x0028, DMI type 7, 19 bytes
+Cache Information
+	Socket Designation: CPU Internal L1
+	Configuration: Enabled, Not Socketed, Level 1
+	Operational Mode: Write Back
+	Location: Internal
+	Installed Size: 112 kB
+	Maximum Size: 112 kB
+	Supported SRAM Types:
+		Unknown
+	Installed SRAM Type: Unknown
+	Speed: Unknown
+	Error Correction Type: Single-bit ECC
+	System Type: Other
+	Associativity: Other
+
+Handle 0x0029, DMI type 7, 19 bytes
+Cache Information
+	Socket Designation: CPU Internal L2
+	Configuration: Enabled, Not Socketed, Level 2
+	Operational Mode: Write Back
+	Location: Internal
+	Installed Size: 1 MB
+	Maximum Size: 1 MB
+	Supported SRAM Types:
+		Unknown
+	Installed SRAM Type: Unknown
+	Speed: Unknown
+	Error Correction Type: Single-bit ECC
+	System Type: Unified
+	Associativity: 16-way Set-associative
+
+Handle 0x002A, DMI type 4, 42 bytes
+Processor Information
+	Socket Designation: FCBGA1170
+	Type: Central Processor
+	Family: Celeron
+	Manufacturer: Intel
+	ID: 79 06 03 00 FF FB EB BF
+	Signature: Type 0, Family 6, Model 55, Stepping 9
+	Flags:
+		FPU (Floating-point unit on-chip)
+		VME (Virtual mode extension)
+		DE (Debugging extension)
+		PSE (Page size extension)
+		TSC (Time stamp counter)
+		MSR (Model specific registers)
+		PAE (Physical address extension)
+		MCE (Machine check exception)
+		CX8 (CMPXCHG8 instruction supported)
+		APIC (On-chip APIC hardware supported)
+		SEP (Fast system call)
+		MTRR (Memory type range registers)
+		PGE (Page global enable)
+		MCA (Machine check architecture)
+		CMOV (Conditional move instruction supported)
+		PAT (Page attribute table)
+		PSE-36 (36-bit page size extension)
+		CLFSH (CLFLUSH instruction supported)
+		DS (Debug store)
+		ACPI (ACPI supported)
+		MMX (MMX technology supported)
+		FXSR (FXSAVE and FXSTOR instructions supported)
+		SSE (Streaming SIMD extensions)
+		SSE2 (Streaming SIMD extensions 2)
+		SS (Self-snoop)
+		HTT (Multi-threading)
+		TM (Thermal monitor supported)
+		PBE (Pending break enabled)
+	Version: Intel(R) Celeron(R) CPU J1800 @ 2.41GHz
+	Voltage: 1.2 V
+	External Clock: 83 MHz
+	Max Speed: 2580 MHz
+	Current Speed: 2410 MHz
+	Status: Populated, Enabled
+	Upgrade: Socket BGA1155
+	L1 Cache Handle: 0x0028
+	L2 Cache Handle: 0x0029
+	L3 Cache Handle: Not Provided
+	Serial Number: Not Specified
+	Asset Tag: Fill By OEM
+	Part Number: Fill By OEM
+	Core Count: 2
+	Core Enabled: 2
+	Thread Count: 2
+	Characteristics:
+		64-bit capable
+
+Handle 0x002B, DMI type 13, 22 bytes
+BIOS Language Information
+	Language Description Format: Long
+	Installable Languages: 8
+		en|US|iso8859-1
+		fr|FR|iso8859-1
+		zh|CN|unicode
+		<BAD INDEX>
+		<BAD INDEX>
+		<BAD INDEX>
+		<BAD INDEX>
+		<BAD INDEX>
+	Currently Installed Language: en|US|iso8859-1
+
+Handle 0x002C, DMI type 127, 4 bytes
+End Of Table
+
