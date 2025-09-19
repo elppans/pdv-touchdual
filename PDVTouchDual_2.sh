@@ -16,6 +16,8 @@ RESOLUCAO_OPERADOR="1366x768"	# Resolução suportada pelo monitor
 RATE_OPERADOR="60"		        # Frame Rate suportada pelo monitor
 LARGURA_OPERADOR=$(echo "$RESOLUCAO_OPERADOR" | cut -d'x' -f1)	# Ex.: 1920
 ALTURA_OPERADOR=$(echo "$RESOLUCAO_OPERADOR" | cut -d'x' -f2)	# Ex.: 1080
+POSICAO_OPERADOR="${LARGURA_OPERADOR}x0"
+POSICAOX1="$(echo $POSICAO_OPERADOR | sed 's/x/,/')"
 
 # Monitor do CLIENTE
 XCLIENTE='DP-1'			        # Porta de vídeo do Cliente
@@ -23,6 +25,8 @@ RESOLUCAO_CLIENTE="1024x768"	# Resolução suportada pelo monitor
 RATE_CLIENTE="60"		        # Frame Rate suportada pelo monitor
 LARGURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f1)	# Ex.: 800
 ALTURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f2)	# Ex.: 600
+POSICAO_CLIENTE="${LARGURA_CLIENTE}x0"
+POSICAOX2="$(echo $POSICAO_CLIENTE | sed 's/x/,/')"
 
 # ==============================
 # Funções
@@ -30,7 +34,7 @@ ALTURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f2)	# Ex.: 600
 
 configurar_monitores() {
     xrandr --auto --output "$XOPERADOR" --mode "$RESOLUCAO_OPERADOR" --pos 0x0--rate "$RATE_OPERADOR"
-    xrandr --auto --output "$XCLIENTE" --mode "$RESOLUCAO_CLIENTE"  --pos "$LARGURA_OPERADOR"x0 --rate "$RATE_CLIENTE"
+    xrandr --auto --output "$XCLIENTE" --mode "$RESOLUCAO_CLIENTE"  --pos "$POSICAO_OPERADOR" --rate "$RATE_CLIENTE"
 }
 
 adicionar_resolucao() {
@@ -121,6 +125,25 @@ centralizar_monitor() {
     xrandr --output "$SAIDA" --mode "$RES_DESEJADA" \
            --panning "${LARG_DESEJADA}x${ALT_DESEJADA}+${OFFSET_X}+${OFFSET_Y}" \
            --transform 1,0,0,0,1,0,0,0,1
+}
+
+# Função para verificar e posicionar a janela Java
+pdvjava_param() {
+  while true; do
+    WMID=$(wmctrl -l | grep "Zanthus Retail" | cut -d " " -f1)
+    if [ -z "$WMID" ]; then
+      echo "Aguardando 'Zanthus Retail' iniciar..."
+      sleeping 5
+      clear
+    else
+      # Garantir que o Java seja configurado na posição parametrizada.
+      # wmctrl -i -r $WMID -e "0,$posicaox1,-1,-1"
+      # POSICAOX1 = Monitor 1, POSICAOX2 = Monitor 2
+      wmctrl -i -r $WMID -e "0,"$POSICAOX2",-1,-1"
+      echo "Janela 'Zanthus Retail' encontrada e configurada."
+      break
+    fi
+  done
 }
 
 ocultar_cursor() {
