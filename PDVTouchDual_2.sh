@@ -209,6 +209,34 @@ centralizar_monitor() {
            --transform 1,0,0,0,1,0,0,0,1
 }
 
+# Função para verificar em loop a execução do CODFON e execução do popup
+popup_exec() {
+  # Caminho completo para o script popup
+  popup_script="/usr/local/bin/popup"
+
+  # Cria o script com o conteúdo
+  cat >"$popup_script" <<EOF
+#!/bin/bash
+while true; do
+    # Verifica se algum dos processos está em execução
+    if ! ps aux | grep -i "lnx_receb" | grep -v grep >/dev/null; then
+        # Se nenhum dos processos foi encontrado, executa o popup
+        chromium-browser --test-type --no-sandbox --kiosk --incognito --no-context-menu --disable-translate http://127.0.0.1:8080/popup
+        # Sai do loop após executar o script
+        break
+    fi
+    # Aguarda por um tempo antes de verificar novamente (ajuste conforme necessário)
+    sleep 5
+done
+EOF
+
+  # Define as permissões de execução
+  chmod +x "$popup_script"
+
+  # Executa o script em segundo plano
+  setsid nohup "$popup_script" &
+}
+
 # Função para verificar e posicionar a janela Java
 pdvjava_param() {
   while true; do
@@ -302,27 +330,29 @@ sleeping 10
 find "$temp_profile" -mindepth 1 -not -path "$local_storage/*" -delete &>>/dev/null
 
 # Executar Chromium com uma nova instância
-setsid nohup chromium-browser --no-sandbox \
---test-type \
---no-default-browser-check \
---no-context-menu \
---disable-gpu \
---disable-session-crashed-bubble \
---disable-infobars \
---disable-background-networking \
---disable-component-extensions-with-background-pages \
---disable-features=SessionRestore \
---disable-restore-session-state \
---disable-features=DesktopPWAsAdditionalWindowingControls \
---disable-features=TabRestore \
---disable-translate \
---disk-cache-dir=/tmp/chromium-cache \
---user-data-dir="$temp_profile" \
---restore-last-session=false \
---autoplay-policy=no-user-gesture-required \
---enable-speech-synthesis \
---kiosk \
-file:///"$interface"/index.html &>>/dev/null 
+    setsid nohup chromium-browser --no-sandbox \
+	--test-type \
+	--no-default-browser-check \
+	--no-context-menu \
+	--disable-gpu \
+	--disable-session-crashed-bubble \
+	--disable-infobars \
+	--disable-background-networking \
+	--disable-component-extensions-with-background-pages \
+	--disable-features=SessionRestore \
+	--disable-restore-session-state \
+	--disable-features=DesktopPWAsAdditionalWindowingControls \
+	--disable-features=TabRestore \
+	--disable-translate \
+	--disk-cache-dir=/tmp/chromium-cache \
+	--user-data-dir="$temp_profile" \
+	--restore-last-session=false \
+	--autoplay-policy=no-user-gesture-required \
+	--enable-speech-synthesis \
+	--kiosk \
+	file:///"$interface"/index.html &
+	echo "Ajustando Interface..."
+	interface_param
 }
 
 # ==============================
@@ -330,20 +360,21 @@ file:///"$interface"/index.html &>>/dev/null
 # ==============================
 
 main() {
-    # adicionar_resolucao "$XOPERADOR" 1024 768 60           # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "HDMI-2" 1024 768 60)
-    # adicionar_resolucao "$XCLIENTE" 1024 768 60            # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "DP-1" 1024 768 60)
-    configurar_monitores
-    # sleeping_gui        				     # Mesclado em mapear_touchscreens
-    mapear_touchscreens &
-    # ajustar_energia_tela      			     # Mesclado em mapear_touchscreens
-    # centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
-    # centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE"   # Centralizar o monitor do CLIENTE (Java)
-    sleeping 5
-    ocultar_cursor
-    ajustar_permissoes
-    iniciar_servicos
+	# adicionar_resolucao "$XOPERADOR" 1024 768 60           # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "HDMI-2" 1024 768 60)
+	# adicionar_resolucao "$XCLIENTE" 1024 768 60            # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "DP-1" 1024 768 60)
+	configurar_monitores
+	# sleeping_gui        				     # Mesclado em mapear_touchscreens
+	mapear_touchscreens &
+	# ajustar_energia_tela      			     # Mesclado em mapear_touchscreens
+	# centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
+	# centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE"   # Centralizar o monitor do CLIENTE (Java)
+	sleeping 5
+	ocultar_cursor
+	ajustar_permissoes
+	iniciar_servicos
 	iniciar_interface
-    # abrir_chromium_kiosk
+	# abrir_chromium_kiosk
+ 	popup_exec				# Executar popup após encerramento do PDV
 }
 
 main
