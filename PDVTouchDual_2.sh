@@ -115,7 +115,7 @@ main() {
     mapear_touchscreens
     # ajustar_energia_tela #Mesclado em mapear_touchscreens
     # centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
-    centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE" # Centralizar o monitor do CLIENTE (Java)
+    # centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE" # Centralizar o monitor do CLIENTE (Java)
     sleep 5
     ocultar_cursor
     ajustar_permissoes
