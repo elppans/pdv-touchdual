@@ -88,6 +88,9 @@ echo -e "
 
 	xrandr --auto --output "$XOPERADOR" --mode "$RESOLUCAO_OPERADOR" --pos 0x0 --rate "$RATE_OPERADOR" \
 --auto --output "$XCLIENTE" --mode "$RESOLUCAO_CLIENTE"  --pos "$POSICAO_OPERADOR" --rate "$RATE_CLIENTE"
+
+	# centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome) = (Ainda em codificação)
+	# centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE"   # Centralizar o monitor do CLIENTE (Java) = (Ainda em codificação)
 }
 
 adicionar_resolucao() {
@@ -221,6 +224,7 @@ while true; do
     # Verifica se algum dos processos está em execução
     if ! ps aux | grep -i "lnx_receb" | grep -v grep >/dev/null; then
         # Se nenhum dos processos foi encontrado, executa o popup
+        pkill -f lnx ; pkill -f jav ; pkill -f mainapp ; pkill -9 chro ; pkill -f PDV
         chromium-browser --test-type --no-sandbox --kiosk --incognito --no-context-menu --disable-translate http://127.0.0.1:8080/popup
         # Sai do loop após executar o script
         break
@@ -351,6 +355,7 @@ find "$temp_profile" -mindepth 1 -not -path "$local_storage/*" -delete &>>/dev/n
 	--enable-speech-synthesis \
 	--kiosk \
 	file:///"$interface"/index.html &
+	popup_exec
 	echo "Ajustando Interface..."
 	interface_param
 }
@@ -360,21 +365,16 @@ find "$temp_profile" -mindepth 1 -not -path "$local_storage/*" -delete &>>/dev/n
 # ==============================
 
 main() {
-	# adicionar_resolucao "$XOPERADOR" 1024 768 60           # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "HDMI-2" 1024 768 60)
+	# adicionar_resolucao "$XOPERADOR" 1024 768 60           # Exemplo: criar resolução 1024x768 a 60Hz na saída HDMI-2 (adicionar_resolucao "HDMI-2" 1024 768 60)
 	# adicionar_resolucao "$XCLIENTE" 1024 768 60            # Exemplo: criar resolução 1024x768 a 60Hz na saída DP-1 (adicionar_resolucao "DP-1" 1024 768 60)
 	configurar_monitores
-	# sleeping_gui        				     # Mesclado em mapear_touchscreens
 	mapear_touchscreens &
-	# ajustar_energia_tela      			     # Mesclado em mapear_touchscreens
-	# centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
-	# centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE"   # Centralizar o monitor do CLIENTE (Java)
 	sleeping 5
 	ocultar_cursor
 	ajustar_permissoes
 	iniciar_servicos
 	iniciar_interface
-	# abrir_chromium_kiosk
- 	popup_exec				# Executar popup após encerramento do PDV
+ 	# popup_exec				# Executar popup após encerramento do PDV (Mesclado em iniciar_interface)
 }
 
 main
