@@ -28,7 +28,7 @@ ALTURA_CLIENTE=$(echo "$RESOLUCAO_CLIENTE" | cut -d'x' -f2)	# Ex.: 600
 POSICAO_CLIENTE="${LARGURA_CLIENTE}x0"
 POSICAOX2="$(echo $POSICAO_CLIENTE | sed 's/x/,/')"
 
-# Indicar em qual monitor a aplicação deve permanecer após iniciar
+# Indicar em qual monitor a aplicação deve permanecer após iniciar (Monitor 1 = POSICAOX1 / Monitor 2 = POSICAOX2)
 MONITOR_JAVA="$POSICAOX1"
 MONITOR_INTERFACE="$POSICAOX2"
 
