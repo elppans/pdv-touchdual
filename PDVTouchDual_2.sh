@@ -53,6 +53,29 @@ ajustar_energia_tela() {
     xset s off
 }
 
+centralizar_monitor() {
+    local SAIDA="$1"
+    local RES_DESEJADA="$2"
+
+    # Resolução física atual do monitor
+    local RES_FISICA=$(xrandr | grep -A1 "^$SAIDA " | tail -n1 | awk '{print $1}')
+    local LARG_FISICA=$(echo "$RES_FISICA" | cut -d'x' -f1)
+    local ALT_FISICA=$(echo "$RES_FISICA" | cut -d'x' -f2)
+
+    # Resolução desejada
+    local LARG_DESEJADA=$(echo "$RES_DESEJADA" | cut -d'x' -f1)
+    local ALT_DESEJADA=$(echo "$RES_DESEJADA" | cut -d'x' -f2)
+
+    # Cálculo do deslocamento para centralizar
+    local OFFSET_X=$(( (LARG_FISICA - LARG_DESEJADA) / 2 ))
+    local OFFSET_Y=$(( (ALT_FISICA - ALT_DESEJADA) / 2 ))
+
+    # Aplica resolução e centraliza
+    xrandr --output "$SAIDA" --mode "$RES_DESEJADA" \
+           --panning "${LARG_DESEJADA}x${ALT_DESEJADA}+${OFFSET_X}+${OFFSET_Y}" \
+           --transform 1,0,0,0,1,0,0,0,1
+}
+
 ocultar_cursor() {
     /usr/bin/unclutter 1> /dev/null &
 }
@@ -70,7 +93,6 @@ iniciar_servicos() {
 }
 
 abrir_chromium_kiosk() {
-    mapear_touchscreens &
     nohup chromium-browser \
         --disable-pinch \
         --disable-gpu \
@@ -90,8 +112,10 @@ abrir_chromium_kiosk() {
 main() {
     configurar_monitores
     # aguardar_sleep_gui # Mesclado em mapear_touchscreens
-    # mapear_touchscreens #Mesclado em abrir_chromium_kiosk
+    mapear_touchscreens
     # ajustar_energia_tela #Mesclado em mapear_touchscreens
+    # centralizar_monitor "$XOPERADOR" "$RESOLUCAO_OPERADOR" # Centralizar o monitor do OPERADOR (Chrome)
+    centralizar_monitor "$XCLIENTE" "$RESOLUCAO_CLIENTE" # Centralizar o monitor do CLIENTE (Java)
     sleep 5
     ocultar_cursor
     ajustar_permissoes
