@@ -20,7 +20,7 @@ interface_param() {
       clear
     else
       # Garantir que o Java seja configurado na posição parametrizada.
-      xterm -e "for i in \$(seq "$TEMPO" -1 1); do echo -ne \"\$i Seg.\r\"; sleep 1; done; xinput --map-to-output ${TOUCH_ID} ${MONITOR}; sleep 2"
+      xterm -T "Aguardando mapeamento..." -e "for i in \$(seq "$TEMPO" -1 1); do echo -ne \"\$i Seg.\r\"; sleep 1; done; xinput --map-to-output ${TOUCH_ID} ${MONITOR}; sleep 2"
       echo "Janela 'Interface PDV' encontrada e configurada."
       break
     fi
