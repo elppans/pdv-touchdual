@@ -16,7 +16,7 @@ interface_param() {
     WMID=$(wmctrl -l | grep "Interface PDV" | cut -d " " -f1)
     if [ -z "$WMID" ]; then
       echo "Aguardando 'Interface PDV' iniciar..."
-      sleeping 5
+      sleep 5
       clear
     else
       # Garantir que a interfac seja configurada
