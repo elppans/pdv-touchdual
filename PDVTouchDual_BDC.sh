@@ -9,7 +9,7 @@ echo "TOUCH_ID=$TOUCH_ID" | tee -a /tmp/xinput-set
 echo
 echo -e "xinput --map-to-output "${TOUCH_ID}" "${MONITOR}"\n" | tee -a /tmp/xinput-set
 
-xterm -e 'for i in `seq 15 -1 1` ; do echo -ne "$i Seg.\r" ; sleep 1 ; done && xinput --map-to-output "${TOUCH_ID}" "${MONITOR}"' &
+xterm -e "for i in \$(seq 15 -1 1); do echo -ne \"\$i Seg.\r\"; sleep 1; done; xinput --map-to-output ${TOUCH_ID} ${MONITOR}; sleep 2" &
 
 if ! mountpoint -q /media/root/GERSAT3/; then
     mount /media/root/GERSAT3/
