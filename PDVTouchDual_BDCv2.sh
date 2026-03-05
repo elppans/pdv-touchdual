@@ -1,5 +1,6 @@
 #!/bin/bash
 
+TEMPO='25'
 MONITOR=($(xrandr | grep " connected" | head -n1 | awk '{print $1}'))
 TOUCH_ID=($(xinput list | grep -iv "Mouse" | grep -i "ILITEK ILITEK-TP" | grep -o "id=[0-9]*" | cut -d "=" -f 2))
 export MONITOR
@@ -10,6 +11,7 @@ echo
 echo -e "xinput --map-to-output "${TOUCH_ID}" "${MONITOR}"\n" | tee -a /tmp/xinput-set
 
 interface_param() {
+  TEMPO=${TEMPO:-15}
   while true; do
     WMID=$(wmctrl -l | grep "Interface PDV" | cut -d " " -f1)
     if [ -z "$WMID" ]; then
@@ -18,7 +20,7 @@ interface_param() {
       clear
     else
       # Garantir que o Java seja configurado na posição parametrizada.
-      xterm -e "for i in \$(seq 15 -1 1); do echo -ne \"\$i Seg.\r\"; sleep 1; done; xinput --map-to-output ${TOUCH_ID} ${MONITOR}; sleep 2"
+      xterm -e "for i in \$(seq "$TEMPO" -1 1); do echo -ne \"\$i Seg.\r\"; sleep 1; done; xinput --map-to-output ${TOUCH_ID} ${MONITOR}; sleep 2"
       echo "Janela 'Interface PDV' encontrada e configurada."
       break
     fi
