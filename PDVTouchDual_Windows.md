@@ -37,12 +37,6 @@ timeout /t 10 /nobreak > null
 C:\opt\webadmin\extra\zpoja.exe "Zanthus Retail" "2"
 ```
 
-
-
-
-
-
-
 # PDV Dual Touch
 
 Se ainda não instalou, durante a instalação do PDV, ao chegar na parte de informar o "Tipo de Interface", escolha "Touch". Depois Prossiga 
@@ -71,8 +65,6 @@ timeout /t 10 /nobreak > null
 C:\opt\webadmin\extra\zpoja.exe "Zanthus Retail" "2"
 ```
 
-![alt text](DualTouch-Java.png)
-
 ### PDV Touch Full Web
 
 Para 2 interfaces Web, deve configurar 2 linhas com o mesmo comando porém, apontando para páginas diferentes.
@@ -90,5 +82,3 @@ timeout /t 10
 
 C:\opt\webadmin\extra\zpoja.exe "Cliente - Google Chrome" "2"
 ```
-
-![alt text](DualTouch-WEB.png)
